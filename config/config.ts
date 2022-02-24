@@ -34,6 +34,51 @@ export default defineConfig({
   targets: {
     ie: 11,
   },
+  headScripts: [
+    {
+      src: `./resources/js/jquery.min.js`
+    },
+    // {
+    //   src: `https://api.map.baidu.com/api?v=2.0&ak=42IughV5lDxAt0wI8AhDVuGR`
+    // },
+    {
+      src: `https://api.map.baidu.com/api?v=3.0&ak=42IughV5lDxAt0wI8AhDVuGR`//注意bmap的任何两个版本之间都不能混用，样式有冲突
+    },
+    // {
+    //   src:'https://api.map.baidu.com/api?type=webgl&v=1.0&ak=42IughV5lDxAt0wI8AhDVuGR'
+    // },
+    {
+      src:"//api.map.baidu.com/library/TrackAnimation/src/TrackAnimation_min.js"
+    },
+    {
+      src:"//api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"
+    },
+    {
+      src:'//api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js'
+    },
+    {
+      src:'//api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js'
+    },
+    {
+      src:'//api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js'
+    },
+    {
+      src:'//api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js'
+    },
+    {
+      src:'//api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js'
+    },
+    {
+      src:'//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js'
+    },
+    {
+      src:"https://webapi.amap.com/loader.js"
+    }
+  ],
+  links: [
+  { rel: 'stylesheet', href: `./resources/printJS.css` },
+  { rel: 'stylesheet', href: `//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css` },
+  ],
   // umi routes: https://umijs.org/docs/routing
   routes,
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn

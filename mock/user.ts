@@ -44,13 +44,13 @@ export default {
     res.send({
       success: true,
       data: {
-        name: 'Serati Ma',
+        name: '我',
         avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
         userid: '00000001',
         email: 'antdesign@alipay.com',
         signature: '海纳百川，有容乃大',
-        title: '交互专家',
-        group: '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
+        title: '专家',
+        group: '研发部',
         tags: [
           {
             key: '0',
@@ -120,16 +120,31 @@ export default {
   'POST /api/login/account': async (req: Request, res: Response) => {
     const { password, username, type } = req.body;
     await waitTime(2000);
-    if (password === 'ant.design' && username === 'admin') {
-      res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'admin',
-      });
-      access = 'admin';
-      return;
-    }
-    if (password === 'ant.design' && username === 'user') {
+    const users = [
+      {
+        username: 'xuzhenghao',
+        password: '123456'
+      }
+    ];
+    // if (password === 'ant.design' && username === 'admin') {
+    //   res.send({
+    //     status: 'ok',
+    //     type,
+    //     currentAuthority: 'admin',
+    //   });
+    //   access = 'admin';
+    //   return;
+    // }
+    // if (password === 'ant.design' && username === 'user') {
+    //   res.send({
+    //     status: 'ok',
+    //     type,
+    //     currentAuthority: 'user',
+    //   });
+    //   access = 'user';
+    //   return;
+    // }
+    if (users.find(u=>u.username===username)?.password===password) {
       res.send({
         status: 'ok',
         type,
@@ -138,15 +153,17 @@ export default {
       access = 'user';
       return;
     }
-    if (type === 'mobile') {
-      res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'admin',
-      });
-      access = 'admin';
-      return;
-    }
+
+    // if (type === 'mobile') {
+    //   res.send({
+    //     status: 'ok',
+    //     type,
+    //     currentAuthority: 'admin',
+    //   });
+    //   access = 'admin';
+    //   return;
+    // }
+
 
     res.send({
       status: 'error',
