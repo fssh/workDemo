@@ -48,11 +48,13 @@ const useMap = () => {
 			setInfo(getPos());
 		};
 		const overlaycomplete = e => {
-			console.log('overlaycomplete', e, e.calculate);
+			console.log('overlaycomplete', e, e.calculate, e.overlay);
 			({ overlay, drawingMode } = e);
 			drawingManager.close();//必须关闭绘图模式，不然无法编辑
 			overlay.enableEditing?.();
-			overlay?.addEventListener('lineupdate', lineupdate);
+			setTimeout(() => {
+				overlay?.addEventListener('lineupdate', lineupdate);
+			})
 
 			let info;
 			if (drawingMode == 'marker') {
@@ -60,7 +62,7 @@ const useMap = () => {
 				info = `${lng},${lat}`;
 			}
 			else {
-				info=getPos();
+				info = getPos();
 			}
 			setInfo(info);
 		}
