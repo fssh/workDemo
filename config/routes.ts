@@ -20,9 +20,14 @@
   },
   {
     path: '/welcome',
-    name: 'welcome',
+    name: 'Welcome',
     icon: 'smile',
     component: './Welcome',
+  },{
+    path: '/BMapToZhenghao',
+    name: 'BMap Demo',
+    icon: 'heart',
+    component: './BMapToZhenghao',
   },
   // {
   //   path: '/admin',

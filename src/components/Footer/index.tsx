@@ -14,6 +14,7 @@ const Footer: React.FC = () => {
   return (
     <DefaultFooter
       copyright={`${currentYear} ${defaultMessage}`}
+      style={{background:'rgba(0,0,0,0.01)'}}
       links={[
         // {
         //   key: 'Ant Design Pro',
